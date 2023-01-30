@@ -33,7 +33,6 @@ function App() {
       const arrayText = textStr.match(/.{1,81}/g);
 
       formattText(arrayText!);
-      e.target[0].value = "";
     }
   };
 

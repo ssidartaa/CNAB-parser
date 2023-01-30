@@ -63,15 +63,14 @@ export const TextProvider = ({ children }: ITextProviderProps) => {
           theme: "light",
           toastId: 1,
         });
-      })
-      .finally(() => setFileText(null));
+      });
   };
 
   useEffect(() => {
     api
       .get<ICNAB[]>("transactions/")
       .then(({ data }) => setParsedCNAB(data))
-      .catch((err) => {
+      .catch(() => {
         toast.error("Ocorreu algum erro. Tente novamente.", {
           position: "top-right",
           autoClose: 2000,
@@ -83,7 +82,6 @@ export const TextProvider = ({ children }: ITextProviderProps) => {
           theme: "light",
           toastId: 1,
         });
-        console.log(err);
       });
   }, [parsedCNAB]);
 
