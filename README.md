@@ -22,4 +22,4 @@ Um projeto onde você pode parsear, guardar e ler dados de arquivos CNAB com os 
 
 ## Para ver o deploy do projeto
 
-<a href="https://cnab-parser.vercel.app/">Vercel</a>
+<a target="_blank" href="https://cnab-parser.vercel.app/">Vercel</a>
