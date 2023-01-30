@@ -16,7 +16,6 @@ export const TextProvider = ({ children }: ITextProviderProps) => {
   const [showCNAB, setShowCNAB] = useState<boolean>(false);
 
   const formattText = (data: RegExpMatchArray) => {
-    setFileText(null);
     let formattedCNAB = {} as ICNAB;
     data.forEach((str) => {
       formattedCNAB = {
@@ -52,7 +51,7 @@ export const TextProvider = ({ children }: ITextProviderProps) => {
           toastId: 1,
         });
       })
-      .catch((err) => {
+      .catch(() => {
         toast.error("Ocorreu algum erro. Tente novamente.", {
           position: "top-right",
           autoClose: 2000,
@@ -64,8 +63,8 @@ export const TextProvider = ({ children }: ITextProviderProps) => {
           theme: "light",
           toastId: 1,
         });
-        console.log(err);
-      });
+      })
+      .finally(() => setFileText(null));
   };
 
   useEffect(() => {
@@ -93,7 +92,7 @@ export const TextProvider = ({ children }: ITextProviderProps) => {
       api
         .get<ICNAB[]>("transactions/")
         .then(({ data }) => setParsedCNAB(data))
-        .catch((err) => {
+        .catch(() => {
           toast.error("Ocorreu algum erro. Tente novamente.", {
             position: "top-right",
             autoClose: 2000,
@@ -105,7 +104,6 @@ export const TextProvider = ({ children }: ITextProviderProps) => {
             theme: "light",
             toastId: 1,
           });
-          console.log(err);
         })
         .finally(() => setShowCNAB(true));
     }
