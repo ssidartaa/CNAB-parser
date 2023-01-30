@@ -66,7 +66,14 @@ function App() {
                 <ul key={id}>
                   <li>{type}</li>
                   <li>{date}</li>
-                  <li>{value}</li>
+                  <li>
+                    {type == "Boleto" ||
+                    type == "Financiamento" ||
+                    type == "Aluguel"
+                      ? "- "
+                      : "+ "}
+                    {value}
+                  </li>
                   <li>{cpf}</li>
                   <li>{credit_card}</li>
                   <li>{hour}</li>
