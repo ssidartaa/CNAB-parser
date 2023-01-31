@@ -63,21 +63,45 @@ function App() {
                 store_name,
               }) => (
                 <ul key={id}>
-                  <li>{type}</li>
-                  <li>{date}</li>
                   <li>
-                    {type == "Boleto" ||
-                    type == "Financiamento" ||
-                    type == "Aluguel"
-                      ? "- "
-                      : "+ "}
-                    {value}
+                    <strong>Nome da loja: </strong>
+                    <span>{store_name}</span>
                   </li>
-                  <li>{cpf}</li>
-                  <li>{credit_card}</li>
-                  <li>{hour}</li>
-                  <li>{owner_name}</li>
-                  <li>{store_name}</li>
+                  <li>
+                    <strong>Nome do dono da loja: </strong>
+                    <span>{owner_name}</span>
+                  </li>
+                  <li>
+                    <strong>Tipo da transação: </strong>
+                    <span>{type}</span>
+                  </li>
+                  <li>
+                    <strong>Valor da transação: </strong>
+                    <span>
+                      {type == "Boleto" ||
+                      type == "Financiamento" ||
+                      type == "Aluguel"
+                        ? "- R$"
+                        : "+ R$"}
+                      {value.replace(".", ",")}
+                    </span>
+                  </li>
+                  <li>
+                    <strong>Data da transação: </strong>
+                    <span>{date}</span>
+                  </li>
+                  <li>
+                    <strong>Hora da transação: </strong>
+                    <span>{hour}</span>
+                  </li>
+                  <li>
+                    <strong>Cartão utilizado: </strong>
+                    <span>{credit_card}</span>
+                  </li>
+                  <li>
+                    <strong>CPF utilizado: </strong>
+                    <span>{cpf}</span>
+                  </li>
                 </ul>
               )
             )
